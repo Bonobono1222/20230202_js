@@ -24,6 +24,7 @@ label {
 
 label::before {
   content: '';
+  /*가상요소 사용 시 필수로 입력해야 함*/
   position: fixed;
   /*화면 전체를 기준으로*/
   top: 0;
@@ -49,7 +50,7 @@ label div {
 
 #checkbox-btn:checked + label div:first-child {
   transform: translateY(24px) rotate(45deg);
-  background-color: rgb(46, 43, 226);
+  background-color: blue;
 }
 
 #checkbox-btn:checked + label div:nth-child(2) {
