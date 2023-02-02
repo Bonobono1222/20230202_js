@@ -1,0 +1,78 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+}
+
+.ham-btn {
+  width: 150px;
+  height: 150px;
+  position: relative;
+  /*position: relative를 안 잡아주면 요소들이 화면을 뚫고 나감*/
+}
+
+.ham-btn::before,
+.ham-btn::after,
+.ham-btn div {
+  position: absolute;
+  content: '';
+  /*가상요소들에게는 content값이 필수로 있어야 한다.*/
+  width: 100%;
+  /*.ham-btn의 width값을 따라감*/
+  height: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  transition: transform 300ms;
+}
+
+.ham-btn::before {
+  top: 0;
+}
+
+.ham-btn::after {
+  top: 50%;
+  transform: translateY(-50%);
+  /* 위치를 top: 50%을 주면 50%부터 박스의 위치가 설정 되어서
+    가운데가 아니라 좀 더 밑으로 내려와 있음
+    그래서 transform: translateY(-50%)을 줘서 요소 높이 값의 반절을 위로(-50%) 올려줌*/
+}
+
+.ham-btn div {
+  bottom: 0;
+}
+
+.ham-btn:hover::before {
+  /*.ham-btn을 hover했을 때 ::before을 변화 시켜라*/
+  transform: translateY(65px) rotate(135deg);
+  /* translateY값 설정을 (부모의 높이 - 자신의 높이) /2 로 주면된다.
+   -> (.ham-btn height: 150px - .ham-btn::before height: 20px)/2 */
+}
+
+.ham-btn:hover::after {
+  /*.ham-btn을 hover했을 때 ::after을 변화 시켜라*/
+  transform: translateY(-10px) rotate(-135deg);
+  /* translateY값 설정을 자신의 높이 /2 로 주면된다.
+   -> .ham-btn::after height: 20px /2 
+      왜 -10px? 반대편으로 기울어져서 음수값으로*/
+}
+
+.ham-btn:hover div {
+  transform: scale(0);
+  /* .ham-btn:hover되면 transform: scale(0)<div 사라짐>
+     scale() 기본값은 1(100%) 값을 2로 하면 200%로 커짐. 0 사라짐, 0.5 50%로 줄어듬*/
+}
+
+
+
+
+
+

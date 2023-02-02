@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  height: 100vh;
+  /*화면 전체의 수직을 차지*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#checkbox-btn {
+  display: none;
+}
+
+label {
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
+label::before {
+  content: '';
+  position: fixed;
+  /*화면 전체를 기준으로*/
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: skyblue;
+}
+
+label div {
+  position: relative;
+  height: 12px;
+  background-color: #fff;
+  margin-bottom: 12px;
+  border-radius: 5px;
+  transition: transform 300ms;
+}
+
+#checkbox-btn:checked + label::before {
+  /*#checkbox-btn가 checked 됐을 때 label::before을 ~해라*/
+  background-color: deepskyblue;
+}
+
+#checkbox-btn:checked + label div:first-child {
+  transform: translateY(24px) rotate(45deg);
+  background-color: rgb(46, 43, 226);
+}
+
+#checkbox-btn:checked + label div:nth-child(2) {
+  transform: rotate(-45deg);
+  /* label div에 margin-bottom: 12px;이 있어서 translateY()값을 안 줘도 됌*/
+}
+
+#checkbox-btn:checked + label div:last-child {
+  transform: scale(0);
+}
+
+
+/* .wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: skyblue;
+}
+
+#checkbox-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#checkbox-btn:checked {
+
+}
+
+label {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+label div:first-child {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+label div:nth-child(2) {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  transform: translateY(-50%);
+}
+
+label div:last-child {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+label:hover div:first-child {
+  transform: translateY(40px) rotate(135deg);
+}
+
+label:hover div:nth-child(2) {
+  transform: translateY(-10px) rotate(-135deg);
+}
+
+label:hover div:last-child {
+  transform: scale(0);
+} */
+
