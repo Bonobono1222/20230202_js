@@ -44,6 +44,7 @@ label div {
 }
 
 #checkbox-btn:checked + label::before {
+  /*css형제 선택자 + 사용*/
   /*#checkbox-btn가 checked 됐을 때 label::before을 ~해라*/
   background-color: deepskyblue;
 }
